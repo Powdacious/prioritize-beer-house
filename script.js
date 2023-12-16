@@ -1,9 +1,13 @@
 // Sample data for initial table
 const features = [
-    { name: 'Feature A', value: 5, cost: 3 },
-    { name: 'Feature B', value: 8, cost: 2 },
+    { name: 'Feature A', value: 1, cost: 1 },
+    { name: 'Feature B', value: 2, cost: 2 },
     // Add more features as needed
 ];
+
+// Scoring options
+const valueOptions = ['a beer', 'a week\'s wages', 'a holiday', 'their car', 'their house'];
+const costOptions = ['a beer', 'a week\'s wages', 'a holiday', 'a car', 'a house'];
 
 // Function to render the table
 function renderTable() {
@@ -22,18 +26,23 @@ function renderTable() {
     // Create data rows
     features.forEach(feature => {
         const row = table.insertRow();
-        const priority = feature.value * feature.cost; // Calculate priority
+        const priority = calculatePriority(feature.value, feature.cost); // Calculate priority
 
         // Add feature details to the row
         Object.values(feature).forEach(value => {
             const cell = row.insertCell();
-            cell.textContent = value;
+            cell.textContent = valueOptions.includes(value) ? valueOptions[value - 1] : value;
         });
 
         // Add priority to the row
         const priorityCell = row.insertCell();
         priorityCell.textContent = priority;
     });
+}
+
+// Function to calculate priority based on value and cost
+function calculatePriority(value, cost) {
+    return value * cost;
 }
 
 // Call the renderTable function to initially populate the table
