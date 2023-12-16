@@ -11,6 +11,7 @@ const costOptions = ['a beer', 'a week\'s wages', 'a holiday', 'a car', 'a house
 
 // Function to submit feature entered by the user
 function submitFeature() {
+    console.log("Submit button clicked");
     const featureName = document.getElementById('featureName').value;
     const value = document.getElementById('value').value;
     const cost = document.getElementById('cost').value;
