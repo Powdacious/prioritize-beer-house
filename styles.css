@@ -35,6 +35,7 @@ table {
     margin-top: 20px;
     border-collapse: collapse;
     width: 100%;
+    background-color: #808080;
 }
 
 table, th, td {
